@@ -1,0 +1,6 @@
+External ID,Initial Source,Initial Source Medium,Initial Source Campaign,Initial Source Content,Initial Source First Page,Initial Source Referrer,Initial Referring Domain,Last Source,Last Source Medium,Last Source Campaign,Last Source First Page,Last Referring Domain,UTM Source,UTM Medium,UTM Campaign
+1001,,cpc,spring-sale,,https://example.ca/?gclid=Cj0KCQabc&utm_medium=cpc&utm_campaign=spring-sale,,,,,,,,,
+1002,(organic),,,,https://example.ca/,,google.com,,,,,,,
+1003,(direct),,,,,,,facebook,cpc,retarget-2026,https://example.ca/?utm_source=facebook&utm_medium=cpc&utm_campaign=retarget-2026,,,,
+1004,(referral),,,,https://example.ca/,,reddit.com,,,,,,,
+,,,,,,,,,,,,,,,

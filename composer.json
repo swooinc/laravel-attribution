@@ -1,0 +1,42 @@
+{
+    "name": "swooinc/laravel-attribution",
+    "description": "First-touch marketing attribution capture for Laravel applications.",
+    "type": "library",
+    "license": "proprietary",
+    "require": {
+        "php": "^7.4|^8.0|^8.1|^8.2",
+        "illuminate/support": "^8.0|^9.0|^10.0|^11.0|^12.0",
+        "illuminate/database": "^8.0|^9.0|^10.0|^11.0|^12.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5|^10.0|^11.0|^12.0",
+        "orchestra/testbench": "^6.0|^7.0|^8.0|^9.0|^10.0",
+        "phpstan/phpstan": "^1.0",
+        "friendsofphp/php-cs-fixer": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SwooInc\\Attribution\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SwooInc\\Attribution\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SwooInc\\Attribution\\AttributionServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "analyse": "vendor/bin/phpstan analyse",
+        "style": "vendor/bin/php-cs-fixer check --config=.php-cs-fixer.dist.php --diff",
+        "style:fix": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
