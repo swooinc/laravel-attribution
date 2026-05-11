@@ -52,6 +52,7 @@ abstract class TestCase extends Orchestra
             // Initial touch
             $table->string('initial_gclid')->nullable();
             $table->string('initial_fbclid')->nullable();
+            $table->string('initial_ttclid')->nullable();
             $table->string('initial_utm_source')->nullable();
             $table->string('initial_utm_medium')->nullable();
             $table->string('initial_utm_campaign', 500)->nullable();
@@ -69,6 +70,7 @@ abstract class TestCase extends Orchestra
             // Last touch
             $table->string('last_gclid')->nullable();
             $table->string('last_fbclid')->nullable();
+            $table->string('last_ttclid')->nullable();
             $table->string('last_utm_source')->nullable();
             $table->string('last_utm_medium')->nullable();
             $table->string('last_utm_campaign', 500)->nullable();
@@ -86,6 +88,7 @@ abstract class TestCase extends Orchestra
             // Converting touch
             $table->string('converting_gclid')->nullable();
             $table->string('converting_fbclid')->nullable();
+            $table->string('converting_ttclid')->nullable();
             $table->string('converting_source', 100)->nullable();
             $table->string('converting_medium', 100)->nullable();
             $table->string('converting_utm_campaign', 500)->nullable();

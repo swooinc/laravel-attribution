@@ -11,6 +11,7 @@
     var hasSignal = !!(
         params.get('gclid') ||
         params.get('fbclid') ||
+        params.get('ttclid') ||
         params.get('utm_source') ||
         params.get('utm_medium') ||
         params.get('utm_campaign')
@@ -36,6 +37,7 @@
         return {
             gclid: params.get('gclid'),
             fbclid: params.get('fbclid'),
+            ttclid: params.get('ttclid'),
             utm_source: params.get('utm_source'),
             utm_medium: params.get('utm_medium'),
             utm_campaign: params.get('utm_campaign'),

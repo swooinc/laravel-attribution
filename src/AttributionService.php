@@ -65,6 +65,7 @@ class AttributionService
             // Initial touch
             'initial_gclid' => $initial['gclid'] ?? null,
             'initial_fbclid' => $initial['fbclid'] ?? null,
+            'initial_ttclid' => $initial['ttclid'] ?? null,
             'initial_utm_source' => $initial['utm_source'] ?? null,
             'initial_utm_medium' => $initial['utm_medium'] ?? null,
             'initial_utm_campaign' => $this->truncate(
@@ -87,6 +88,7 @@ class AttributionService
             // Last touch
             'last_gclid' => $last['gclid'] ?? null,
             'last_fbclid' => $last['fbclid'] ?? null,
+            'last_ttclid' => $last['ttclid'] ?? null,
             'last_utm_source' => $last['utm_source'] ?? null,
             'last_utm_medium' => $last['utm_medium'] ?? null,
             'last_utm_campaign' => $this->truncate(
@@ -109,6 +111,7 @@ class AttributionService
             // Converting touch — subset of last, snapshot at signup
             'converting_gclid' => $last['gclid'] ?? null,
             'converting_fbclid' => $last['fbclid'] ?? null,
+            'converting_ttclid' => $last['ttclid'] ?? null,
             'converting_source' => $resolvedLastSource,
             'converting_medium' => $this->resolveMedium($last),
             'converting_utm_campaign' => $this->truncate(
@@ -149,6 +152,7 @@ class AttributionService
             ->update([
                 'converting_gclid' => $touch['gclid'] ?? null,
                 'converting_fbclid' => $touch['fbclid'] ?? null,
+                'converting_ttclid' => $touch['ttclid'] ?? null,
                 'converting_source' => $this->resolveSource($touch),
                 'converting_medium' => $this->resolveMedium($touch),
                 'converting_utm_campaign' => $this->truncate(
@@ -178,6 +182,7 @@ class AttributionService
             ->update([
                 'converting_gclid' => DB::raw('last_gclid'),
                 'converting_fbclid' => DB::raw('last_fbclid'),
+                'converting_ttclid' => DB::raw('last_ttclid'),
                 'converting_source' => DB::raw('last_source'),
                 'converting_medium' => DB::raw('last_medium'),
                 'converting_utm_campaign' => DB::raw('last_utm_campaign'),
@@ -201,7 +206,7 @@ class AttributionService
 
     /**
      * Resolve the marketing source from a touch's data.
-     * Priority: utm_source > gclid > fbclid > referring_domain > (direct)
+     * Priority: utm_source > gclid > fbclid > ttclid > referring_domain > (direct)
      *
      * @param  array  $touch
      * @return string
@@ -218,6 +223,10 @@ class AttributionService
 
         if (filled($touch['fbclid'] ?? null)) {
             return 'facebook';
+        }
+
+        if (filled($touch['ttclid'] ?? null)) {
+            return 'tiktok';
         }
 
         $domain = strtolower($touch['referring_domain'] ?? '');
@@ -259,6 +268,7 @@ class AttributionService
         if (
             filled($touch['gclid'] ?? null)
             || filled($touch['fbclid'] ?? null)
+            || filled($touch['ttclid'] ?? null)
         ) {
             return 'cpc';
         }

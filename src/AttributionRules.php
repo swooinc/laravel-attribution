@@ -45,6 +45,7 @@ class AttributionRules
         return [
             "{$p}.gclid" => ['nullable', 'string', 'max:255'],
             "{$p}.fbclid" => ['nullable', 'string', 'max:255'],
+            "{$p}.ttclid" => ['nullable', 'string', 'max:255'],
             "{$p}.utm_source" => ['nullable', 'string', 'max:255'],
             "{$p}.utm_medium" => ['nullable', 'string', 'max:255'],
             "{$p}.utm_campaign" => ['nullable', 'string', 'max:500'],

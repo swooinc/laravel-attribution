@@ -38,6 +38,14 @@ class AttributionServiceProvider extends ServiceProvider
             ], 'attribution-migrations');
 
             $this->publishes([
+                __DIR__.'/../database/migrations/add_ttclid_to_attribution_records_table.php'
+                    => database_path(
+                        'migrations/'.date('Y_m_d_His')
+                        .'_add_ttclid_to_attribution_records_table.php'
+                    ),
+            ], 'attribution-ttclid');
+
+            $this->publishes([
                 __DIR__.'/../config/attribution.php'
                     => config_path('attribution.php'),
             ], 'attribution-config');

@@ -19,6 +19,7 @@ class AttributionRecord extends Model
         // Initial touch
         'initial_gclid',
         'initial_fbclid',
+        'initial_ttclid',
         'initial_utm_source',
         'initial_utm_medium',
         'initial_utm_campaign',
@@ -36,6 +37,7 @@ class AttributionRecord extends Model
         // Last touch
         'last_gclid',
         'last_fbclid',
+        'last_ttclid',
         'last_utm_source',
         'last_utm_medium',
         'last_utm_campaign',
@@ -53,6 +55,7 @@ class AttributionRecord extends Model
         // Converting touch
         'converting_gclid',
         'converting_fbclid',
+        'converting_ttclid',
         'converting_source',
         'converting_medium',
         'converting_utm_campaign',
